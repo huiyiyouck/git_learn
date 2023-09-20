@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="wehotelApp">
+<head>
+    <!-- META SECTION -->
+
+<title>锦江酒店WeHotel官网</title>
+    <meta name="Keywords" content="锦江酒店,7天,麗枫,酒店预订,酒店查询,锦江酒店官网,锦江官网,锦江预订"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- END META SECTION -->
+
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" href="/dist/css/main.min.css?v=1693544907229">
+    <!-- EOF CSS INCLUDE -->
+</head>
+<body ng-controller="newLoginController" ng-init="init()" ng-class="{'plateno':$root.siteConfig.site_id==$root.siteEnum.Plateno}">
+
+<div class="container" ng-include="$root.siteConfig.newLogin.template_url"></div>
+<div loading></div>
+<script type="text/javascript" src="https://static.bestwehotel.com/h5/sdk/wehotel.sdk.min.js?v2021020401"></script>
+
+<script src="/dist/js/siteConfig.js?v=1693544907229"></script>
+
+<script src="/dist/js/vendor.min.js?v=1693544907229"></script>
+
+<script src="/dist/js/wehotel.min.js?v=1693544907229"></script>
+<script type="text/javascript">
+    (function() {
+        window._fmOpt = {
+            partner: 'jinjiang',
+            appName: 'jinjianglx_web',
+            token: 'jinjiang' + "-" + new Date().getTime() + "-"+ Math.random().toString(16).substr(2),
+            fmb: true,
+            success: function(data) {
+                _fmOpt.TDFingerprint = data;
+                _fmOpt.blackBoxMd5 = hex_md5(data);
+            },
+            getinfo: function(){
+                return "e3Y6ICIyLjUuMCIsIG9zOiAid2ViIiwgczogMTk5LCBlOiAianMgbm90IGRvd25sb2FkIn0=";
+            },
+            fpHost:"https://fp.tongdun.net"
+        };
+        var cimg = new Image(1,1);
+        cimg.onload = function() {
+            _fmOpt.imgLoaded = true;
+        };
+        cimg.src = "https://fp.tongdun.net/fp/clear.png?partnerCode=jinjiang&appName=jinjianglx_web&tokenId=" + _fmOpt.token;
+        var fm = document.createElement('script'); fm.type = 'text/javascript';
+        fm.async = true;
+        fm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+            'static.tongdun.net/v3/fm.js?ver=0.1&t=' + (new Date().getTime()/3600000).toFixed(0);
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+    })();
+    (function() {
+        if (window && window.WeSDK && !window._fmOpt.did) {
+            var options = {
+                debug: false,
+                showTime: true,
+                bridgeType: 2,
+                enableAppSDK: false,
+                appName: 'wehotel-app',
+                ENV: 5,
+                sourceTypeId: 90045
+            }
+            window.$we = window.WeSDK(options);
+            window.$we.getFingerprint().then(function (data) {
+                window._fmOpt.did = data.did;
+                window._fmOpt.deviceInfo = data.deviceInfo;
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>
